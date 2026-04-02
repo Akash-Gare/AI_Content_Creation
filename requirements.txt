@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+python-dotenv
+sqlalchemy
+psycopg2-binary
+apscheduler
+selenium
+webdriver-manager
+scikit-learn
+pandas
+joblib
+ollama
+aiohttp
+pillow
+pydantic
+groq
+passlib[bcrypt]

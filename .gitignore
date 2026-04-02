@@ -1,0 +1,38 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment
+.env
+.venv
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Project specific data/db
+*.db
+*.sqlite
+*.sqlite3
+mongo_data/
+chroma_db/
+chroma_db_new/
+.chroma/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Frontend specifics
+node_modules/
+dist/
+build/
+.next/

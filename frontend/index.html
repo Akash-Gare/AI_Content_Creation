@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Poster SaaS - Dashboard</title>
+    <link rel="stylesheet" href="style.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i data-lucide="zap" class="logo-icon"></i>
+                <span>AI Poster</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-view="dashboard">
+                    <i data-lucide="layout-dashboard"></i> Dashboard
+                </a>
+                <a href="#" class="nav-item" data-view="create">
+                    <i data-lucide="plus-circle"></i> Create New
+                </a>
+                <a href="#" class="nav-item" data-view="gallery">
+                    <i data-lucide="image"></i> Gallery
+                </a>
+                <a href="#" class="nav-item" data-view="calendar">
+                    <i data-lucide="calendar"></i> Schedule
+                </a>
+                <a href="#" class="nav-item" data-view="settings">
+                    <i data-lucide="settings"></i> Settings
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1 id="view-title">Dashboard</h1>
+                <div class="top-actions" id="top-actions">
+
+
+                    <button class="btn btn-primary" id="btn-create-header">
+                        <i data-lucide="plus"></i> New Post
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dynamic Viewport -->
+            <div id="main-viewport" class="viewport">
+                <!-- Content will be dynamically rendered here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div class="modal-overlay hidden" id="logout-modal">
+        <div class="modal-card">
+            <div class="modal-icon">
+                <i data-lucide="log-out"></i>
+            </div>
+            <h3>Logout?</h3>
+            <p>Are you sure you want to logout from your account?</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="modal-cancel">Cancel</button>
+                <button class="btn btn-danger" id="modal-confirm">Yes, Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile-section" id="profile-section">
+        <button class="profile-btn" id="profile-btn" aria-label="Open profile menu">
+            <div class="profile-avatar" id="profile-avatar">A</div>
+            <div class="profile-meta">
+                <span class="profile-name" id="profile-name-header">Admin User</span>
+                <i data-lucide="chevron-down" class="profile-chevron" id="profile-chevron"></i>
+            </div>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div class="profile-dropdown-menu" id="profile-dropdown" role="menu">
+            <div class="dropdown-user-info">
+                <div class="dropdown-avatar" id="dropdown-avatar">A</div>
+                <div>
+                    <p class="dropdown-user-name" id="dropdown-user-name">Admin User</p>
+                    <p class="dropdown-user-email" id="dropdown-user-email">admin@aiposter.com</p>
+                </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item-btn" id="view-profile-btn" role="menuitem">
+                <i data-lucide="user-circle"></i>
+                <span>View Profile</span>
+            </button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item-btn danger" id="logout-btn" role="menuitem">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
