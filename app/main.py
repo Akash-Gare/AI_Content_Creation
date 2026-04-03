@@ -70,6 +70,30 @@ class PosterCreate(BaseModel):
     style: str
     post_time: datetime
 
+class UserRegister(BaseModel):
+    full_name: str
+    email: str
+    password: str
+
+@app.post("/register")
+def register(data: UserRegister, db: Session = Depends(get_db)):
+    existing_user = db.query(models.User).filter(models.User.email == data.email).first()
+    if existing_user:
+        return {"error": "Email already registered"}
+    
+    hashed_password = get_password_hash(data.password)
+    
+    new_user = models.User(
+        email=data.email,
+        hashed_password=hashed_password,
+        full_name=data.full_name
+    )
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)
+    
+    return {"message": "Registration successful"}
+
 class UserLogin(BaseModel):
     email: str
     password: str
